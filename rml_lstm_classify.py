@@ -161,7 +161,7 @@ class MonitorCallback(tflearn.callbacks.Callback):
 
 network = tflearn.input_data(shape=[None, maxlen, 2],name="inp")
 network = tflearn.lstm(network, 128, return_seq=True, dynamic=True, dropout=(1, 0.8))
-network = tf.transpose(tf.stack(network),[1,0,2])
+#network = tf.transpose(tf.stack(network),[1,0,2])
 network = tflearn.lstm(network, 128, dynamic=True, dropout=(0.8,1))
 network = tflearn.fully_connected(network, len(mods), activation='softmax',name="out")
 network = tflearn.regression(network, optimizer='adam',
@@ -171,7 +171,7 @@ model = tflearn.DNN(network,tensorboard_verbose=0)
 
 monitorCallback = MonitorCallback(model)
 
-Train = False
+Train = True 
 if Train:
     model.fit(X_train, Y_train, n_epoch=80, shuffle=True,show_metric=True, batch_size=400,validation_set=(X_test, Y_test), run_id='radio_lstm', callbacks=monitorCallback)
 else:
