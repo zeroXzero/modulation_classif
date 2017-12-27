@@ -1,12 +1,12 @@
-#Repository for LSTM based modulation classifier.
+# Repository for LSTM based modulation classifier.
 Paper under review.
 
-##Prerequisites
+## Prerequisites
 Tensorflow
 Tflearn
 
 
-##Files
+## Files
 
 get_data.py             -- Script for retrieving data from Electrosense
 magfft_lstm_classify.py -- Magnitude FFT based classification
